@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lstd-mamba"
+version = "0.1.0"
+description = "A lightweight spectral-temporal dual-Mamba network for multimodal hierarchical crop classification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+keywords = [
+    "remote-sensing",
+    "crop-classification",
+    "hyperspectral",
+    "sentinel-2",
+    "enmap",
+    "mamba",
+    "state-space-model",
+    "hierarchical-classification",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "mmengine>=0.10.7",
+    "mmcv>=2.0.0,<2.2.0",
+    "einops>=0.7",
+]
+
+[project.optional-dependencies]
+# Required by the temporal BTM and spectral BSM operators.
+mamba = ["mamba-ssm>=2.2.2"]
+# Required only by the optional dataset-preparation tools.
+data = ["h5py>=3.8", "numpy>=1.24"]
+
+[tool.setuptools.packages.find]
+include = ["lstd_mamba*"]
+
+[tool.setuptools.package-data]
+lstd_mamba = ["resources/*.json"]

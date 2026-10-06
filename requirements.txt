@@ -1,0 +1,16 @@
+# LSTD-Mamba runtime dependencies.
+#
+# Install a PyTorch build matching your local CUDA driver BEFORE installing
+# mamba-ssm; see the "Installation" section of README.md.
+#
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+#
+# mamba-ssm compiles CUDA kernels and needs a working nvcc toolchain.
+
+mamba-ssm>=2.2.2
+mmengine>=0.10.7
+mmcv>=2.0.0,<2.2.0
+einops>=0.7
+
+# The upstream H2Crop project is NOT vendored in this repository.
+# Clone it separately and set H2CROP_ROOT; see README.md.
